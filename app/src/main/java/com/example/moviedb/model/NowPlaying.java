@@ -1,14 +1,35 @@
 package com.example.moviedb.model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.util.List;
 
-public class NowPlaying {
+public class NowPlaying implements Parcelable {
 
     private int page;
     private List<Results> results;
     private Dates dates;
     private int total_pages;
     private int total_results;
+
+    protected NowPlaying(Parcel in) {
+        page = in.readInt();
+        total_pages = in.readInt();
+        total_results = in.readInt();
+    }
+
+    public static final Creator<NowPlaying> CREATOR = new Creator<NowPlaying>() {
+        @Override
+        public NowPlaying createFromParcel(Parcel in) {
+            return new NowPlaying(in);
+        }
+
+        @Override
+        public NowPlaying[] newArray(int size) {
+            return new NowPlaying[size];
+        }
+    };
 
     public int getPage() {
         return page;
@@ -48,6 +69,18 @@ public class NowPlaying {
 
     public void setTotal_results(int total_results) {
         this.total_results = total_results;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(page);
+        dest.writeInt(total_pages);
+        dest.writeInt(total_results);
     }
 
     public static class Dates {
