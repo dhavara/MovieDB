@@ -1,4 +1,4 @@
-package com.example.moviedb.view;
+package com.example.moviedb.view.activities;
 
 import android.os.Bundle;
 import android.view.View;
@@ -44,9 +44,10 @@ public class MainActivity extends AppCompatActivity {
                     til_movie_id.setError("Please fill Movie ID Field!");
                 } else {
                     til_movie_id.setError(null);
+                    viewModel.getMovieById(movieId);
+                    viewModel.getResultGetMovieById().observe(MainActivity.this, showResultMovie);
                 }
-                viewModel.getMovieById(movieId);
-                viewModel.getResultGetMovieById().observe(MainActivity.this, showResultMovie);
+
             }
         });
     }

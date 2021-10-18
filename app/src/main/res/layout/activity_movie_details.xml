@@ -5,7 +5,7 @@
     android:id="@+id/cons_movie_details"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.MovieDetailsActivity">
+    tools:context=".view.activities.MovieDetailsActivity">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cv_card_details"

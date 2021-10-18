@@ -15,10 +15,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MovieLibrary">
         <activity
-            android:name=".view.MovieDetailsActivity"
+            android:name=".view.activities.NowPlayingActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.activities.MovieDetailsActivity"
             android:exported="true" />
         <activity
-            android:name=".view.NowPlayingActivity"
+            android:name=".view.MainMenuActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -27,7 +30,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".view.MainActivity"
+            android:name=".view.activities.MainActivity"
             android:exported="true" />
     </application>
 
