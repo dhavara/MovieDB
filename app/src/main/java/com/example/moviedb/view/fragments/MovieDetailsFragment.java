@@ -3,27 +3,20 @@ package com.example.moviedb.view.fragments;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProvider;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.example.moviedb.R;
-import com.example.moviedb.adapter.NowPlayingAdapter;
-import com.example.moviedb.model.NowPlaying;
-import com.example.moviedb.view.activities.NowPlayingActivity;
-import com.example.moviedb.viewmodel.MovieViewModel;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link NowPlayingFragment#newInstance} factory method to
+ * Use the {@link MovieDetailsFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class NowPlayingFragment extends Fragment {
+public class MovieDetailsFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -34,7 +27,7 @@ public class NowPlayingFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public NowPlayingFragment() {
+    public MovieDetailsFragment() {
         // Required empty public constructor
     }
 
@@ -44,11 +37,11 @@ public class NowPlayingFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment NowPlayingFragment.
+     * @return A new instance of fragment MovieDetailsFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static NowPlayingFragment newInstance(String param1, String param2) {
-        NowPlayingFragment fragment = new NowPlayingFragment();
+    public static MovieDetailsFragment newInstance(String param1, String param2) {
+        MovieDetailsFragment fragment = new MovieDetailsFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -65,30 +58,18 @@ public class NowPlayingFragment extends Fragment {
         }
     }
 
-    private RecyclerView rv_now_playing;
-    private MovieViewModel view_model;
+    private TextView lbl_movie_id;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_now_playing, container, false);
+        View view =  inflater.inflate(R.layout.fragment_movie_details, container, false);
+        lbl_movie_id = view.findViewById(R.id.lbl_movie_id_movie_details_fragment);
 
-        rv_now_playing = view.findViewById(R.id.rv_now_playing_fragment);
-        view_model = new ViewModelProvider(getActivity()).get(MovieViewModel.class);
-        view_model.getNowPlaying();
-        view_model.getResultNowPlaying().observe(getActivity(), showNowPlaying);
+        String movieId = getArguments().getString("movieId");
+        lbl_movie_id.setText(movieId);
 
         return view;
     }
-
-    private Observer<NowPlaying> showNowPlaying = new Observer<NowPlaying>() {
-        @Override
-        public void onChanged(NowPlaying nowPlaying) {
-            rv_now_playing.setLayoutManager(new LinearLayoutManager(getActivity()));
-            NowPlayingAdapter adapter = new NowPlayingAdapter(getActivity());
-            adapter.setListNowPlaying(nowPlaying.getResults());
-            rv_now_playing.setAdapter(adapter);
-        }
-    };
 }

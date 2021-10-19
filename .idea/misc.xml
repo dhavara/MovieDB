@@ -5,7 +5,9 @@
       <map>
         <entry key="..\:/Semester 3/Mobile Application Development/MovieDB/app/src/main/res/layout/activity_main_menu.xml" value="0.25" />
         <entry key="..\:/Semester 3/Mobile Application Development/MovieDB/app/src/main/res/layout/activity_movie_details.xml" value="0.2861111111111111" />
+        <entry key="..\:/Semester 3/Mobile Application Development/MovieDB/app/src/main/res/layout/activity_now_playing.xml" value="0.1" />
         <entry key="..\:/Semester 3/Mobile Application Development/MovieDB/app/src/main/res/layout/card_now_playing.xml" value="0.33" />
+        <entry key="..\:/Semester 3/Mobile Application Development/MovieDB/app/src/main/res/layout/fragment_movie_details.xml" value="0.25" />
         <entry key="..\:/Semester 3/Mobile Application Development/MovieDB/app/src/main/res/layout/fragment_now_playing.xml" value="0.2861111111111111" />
         <entry key="..\:/Semester 3/Mobile Application Development/MovieDB/app/src/main/res/layout/fragment_up_coming.xml" value="0.25" />
         <entry key="..\:/Semester 3/Mobile Application Development/MovieDB/app/src/main/res/menu/main_menu.xml" value="0.25" />
