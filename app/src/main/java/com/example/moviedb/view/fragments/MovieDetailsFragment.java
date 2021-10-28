@@ -124,11 +124,11 @@ public class MovieDetailsFragment extends Fragment {
             }
             lbl_movie_movieTitle.setText(movies.getTitle());
             lbl_movie_movieTagline.setText(movies.getTagline());
-            lbl_movies_popularity.setText("Popularity: " + ""+movies.getPopularity());
+            lbl_movies_popularity.setText("" + movies.getPopularity());
             lbl_movie_movieDesc.setText(movies.getOverview());
-            lbl_movie_movieGenre.setText("Genres: " + movieGenre);
-            lbl_movie_movieRating.setText("Rating: " + "" + movies.getVote_average() + " (" + movies.getVote_count() +") ");
-            lbl_movie_movieRelDate.setText("Release Date: " + movies.getRelease_date());
+            lbl_movie_movieGenre.setText(movieGenre);
+            lbl_movie_movieRating.setText("" + movies.getVote_average() + " (" + movies.getVote_count() +") ");
+            lbl_movie_movieRelDate.setText(movies.getRelease_date());
 
         }
     };
