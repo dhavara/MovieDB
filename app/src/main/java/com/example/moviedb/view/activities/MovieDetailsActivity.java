@@ -1,13 +1,13 @@
 package com.example.moviedb.view.activities;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProvider;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 
 import com.bumptech.glide.Glide;
 import com.example.moviedb.R;
@@ -39,7 +39,7 @@ public class MovieDetailsActivity extends AppCompatActivity {
         lbl_movie_movieDesc = findViewById(R.id.lbl_movie_movieDesc);
         lbl_movie_movieGenre = findViewById(R.id.lbl_movie_movieGenre);
         lbl_movie_movieRating = findViewById(R.id.lbl_movie_movieRating);
-        lbl_movie_ratingCount = findViewById(R.id.lbl_movie_ratingCount);
+        lbl_movie_ratingCount = findViewById(R.id.lbl_movie_prodCompany);
 
         viewModel.getMovieById(movie_id);
         viewModel.getResultGetMovieById().observe(MovieDetailsActivity.this, showResultMovie);
@@ -58,8 +58,8 @@ public class MovieDetailsActivity extends AppCompatActivity {
                 }
             }
                 lbl_movie_movieID.setText("ID: " + movie_id); //nampilin ID
-                lbl_movie_movieTitle.setText(movies.getTitle());
-                lbl_movie_movieDesc.setText(movies.getOverview());//nampilin judul
+                lbl_movie_movieTitle.setText(movies.getTitle()); //nampilin judul
+                lbl_movie_movieDesc.setText(movies.getOverview()); //nampilin deskripsi
                 lbl_movie_movieGenre.setText(movieGenre); //nampilin genre
                 lbl_movie_movieRating.setText("Rating: " + "" + movies.getVote_average()); //nampilin rating
                 lbl_movie_ratingCount.setText("Rating Count: " + movies.getVote_count()); //nampilin jumlah vote
